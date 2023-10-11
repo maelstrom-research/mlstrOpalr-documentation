@@ -95,25 +95,22 @@ handler or Opal read/write permissions.</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
-    <div class="dont-index"><p>Please see <a href="https://opaldoc.obiba.org/en/dev/" class="external-link">Opal documentation</a> for
+    <div class="dont-index"><p>Please see <a href="https://opaldoc.obiba.org/" class="external-link">Opal documentation</a> for
 complete documentation.
 <code><a href="https://rdrr.io/pkg/madshapR/man/as_data_dict_mlstr.html" class="external-link">madshapR::as_data_dict_mlstr()</a></code></p></div>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/obiba/opalr/" class="external-link">opalr</a></span><span class="op">)</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>package 'opalr' was built under R version 4.2.3</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: httr</span>
 <span class="r-in"><span><span class="va">opal</span> <span class="op">&lt;-</span> </span></span>
 <span class="r-in"><span> <span class="fu"><a href="https://www.obiba.org/opalr/reference/opal.login.html" class="external-link">opal.login</a></span><span class="op">(</span><span class="st">'administrator'</span>,<span class="st">'password'</span>,</span></span>
 <span class="r-in"><span>   url <span class="op">=</span><span class="st">'https://opal-demo.obiba.org/'</span><span class="op">)</span></span></span>
 <span class="r-in"><span>   </span></span>
 <span class="r-in"><span><span class="co"># use DEMO_files provided by the package</span></span></span>
-<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/maelstrom-research/madshapR/" class="external-link">madshapR</a></span><span class="op">)</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>package 'madshapR' was built under R version 4.2.3</span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/maelstrom-research/madshapR" class="external-link">madshapR</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://stringr.tidyverse.org" class="external-link">stringr</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">dossier</span> <span class="op">&lt;-</span></span></span>
@@ -121,18 +118,10 @@ complete documentation.
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">tempdir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/basename.html" class="external-link">basename</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu"><a href="opal_project_create.html">opal_project_create</a></span><span class="op">(</span><span class="va">opal</span>, <span class="va">tempdir</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> The project RtmpmQTIRq has been created in Opal</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="opal_tables_push.html">opal_tables_push</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>  <span class="va">opal</span>, <span class="va">dossier</span>,project_name <span class="op">=</span> <span class="va">tempdir</span>, .force <span class="op">=</span> <span class="cn">TRUE</span>, .overwrite <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Verification of input format.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Verification of input format done.</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Tables overwritten, or specify .overwrite = FALSE</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> The table: dataset_MELBOURNE_1 has been successfuly uploaded to Opal in RtmpmQTIRq</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> The table: dataset_MELBOURNE_2 has been successfuly uploaded to Opal in RtmpmQTIRq</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># get the data dictionary and reshape it.</span></span></span>
 <span class="r-in"><span> <span class="va">data_dict</span> <span class="op">&lt;-</span></span></span>
@@ -142,7 +131,7 @@ complete documentation.
 <span class="r-in"><span></span></span>
 <span class="r-in"><span> <span class="va">data_dict</span> <span class="op">&lt;-</span> <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">data_dict_opalr_fix</span><span class="op">(</span><span class="va">data_dict</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  </span></span>
-<span class="r-in"><span><span class="co"># }</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

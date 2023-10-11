@@ -1,9 +1,4 @@
-
-library(harmonizR)
-library(madshapR)
-library(fabR)
 library(mlstrOpalr)
-library(fs)
 # usethis::use_pkgdown()
 
 devtools::document(roclets = c('rd', 'collate', 'namespace', 'vignette'))
