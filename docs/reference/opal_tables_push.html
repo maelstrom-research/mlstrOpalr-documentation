@@ -19,7 +19,7 @@ opalr::opal.table_save() and opalr::opal.table_dictionary_update()."><!-- mathja
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mlstrOpalr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.3</span>
       </span>
     </div>
 
@@ -86,17 +86,17 @@ environment. This is a wrapper function for <code><a href="https://www.obiba.org
 
 
 <dt>dossier</dt>
-<dd><p>List of tibble, each of them being datasets.</p></dd>
+<dd><p>List of data frame, each of them being datasets.</p></dd>
 
 
 <dt>data_dict</dt>
-<dd><p>A list of tibble(s) representing meta data of an
+<dd><p>A list of tibble(s) representing metadata of an
 associated dataset. Automatically generated if not provided.</p></dd>
 
 
 <dt>dataset</dt>
-<dd><p>A tibble identifying the input dataset observations
-associated to its data dictionary.</p></dd>
+<dd><p>A tibble identifying the dataset observations associated to
+its data dictionary.</p></dd>
 
 
 <dt>table_name</dt>
@@ -151,20 +151,20 @@ complete documentation.
 <span class="r-in"><span> <span class="fu"><a href="https://www.obiba.org/opalr/reference/opal.login.html" class="external-link">opal.login</a></span><span class="op">(</span><span class="st">'administrator'</span>,<span class="st">'password'</span>,</span></span>
 <span class="r-in"><span>   url <span class="op">=</span><span class="st">'https://opal-demo.obiba.org/'</span><span class="op">)</span></span></span>
 <span class="r-in"><span>    </span></span>
-<span class="r-in"><span><span class="co"># use DEMO_files provided by the package</span></span></span>
+<span class="r-in"><span><span class="co"># use madshapR_DEMO provided by the package</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/maelstrom-research/madshapR" class="external-link">madshapR</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://stringr.tidyverse.org" class="external-link">stringr</a></span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">dossier</span> <span class="op">&lt;-</span> <span class="va">DEMO_files</span><span class="op">[</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html" class="external-link">str_detect</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">DEMO_files</span><span class="op">)</span>,<span class="st">"dataset_MELBOURNE"</span><span class="op">)</span><span class="op">]</span></span></span>
+<span class="r-in"><span><span class="va">dataset</span> <span class="op">&lt;-</span> <span class="va">madshapR_DEMO</span><span class="op">$</span><span class="va">dataset_MELBOURNE</span></span></span>
 <span class="r-in"><span>    </span></span>
 <span class="r-in"><span><span class="va">tempdir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/basename.html" class="external-link">basename</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu"><a href="opal_project_create.html">opal_project_create</a></span><span class="op">(</span><span class="va">opal</span>, <span class="va">tempdir</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># push a table in a project.</span></span></span>
-<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span> </span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>  <span class="fu">opal_tables_push</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  <span class="va">opal</span>,</span></span>
-<span class="r-in"><span>  dataset <span class="op">=</span> <span class="va">dossier</span><span class="op">$</span><span class="va">dataset_MELBOURNE_1</span>,</span></span>
-<span class="r-in"><span>  table_name <span class="op">=</span> <span class="st">'dataset_MELBOURNE_1'</span>,</span></span>
+<span class="r-in"><span>  dataset <span class="op">=</span> <span class="va">dataset</span>,</span></span>
+<span class="r-in"><span>  table_name <span class="op">=</span> <span class="st">'MELBOURNE'</span>,</span></span>
 <span class="r-in"><span>  project_name <span class="op">=</span> <span class="va">tempdir</span>,</span></span>
 <span class="r-in"><span>  .force <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
 <span class="r-in"><span>  .overwrite <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span></span>
